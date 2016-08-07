@@ -1,0 +1,4 @@
+---
+openssh::server::gssapi_cleanup_credentials: true
+openssh::server::protocol:
+  - 2

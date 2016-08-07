@@ -1,0 +1,13 @@
+---
+openssh::client::conf_dir: '/etc/ssh'
+openssh::client::conf_file: "%{lookup('openssh::client::conf_dir')}/ssh_config"
+openssh::client::hosts: {}
+openssh::client::matches: {}
+
+openssh::server::conf_dir: '/etc/ssh'
+openssh::server::conf_file: "%{lookup('openssh::server::conf_dir')}/sshd_config"
+openssh::server::ldap::conf_file: "%{lookup('openssh::server::conf_dir')}/ldap.conf"
+openssh::server::ldap::manage_package: true
+openssh::server::service_name: 'sshd'
+openssh::server::matches: {}
+openssh::server::subsystems: {}

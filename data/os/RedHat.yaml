@@ -1,0 +1,57 @@
+---
+openssh::client::hosts:
+  defaults:
+    host: '*'
+    order: 99
+    forward_x11_trusted: true
+    gssapi_authentication: true
+    send_env:
+      - 'LANG'
+      - 'LC_CTYPE'
+      - 'LC_NUMERIC'
+      - 'LC_TIME'
+      - 'LC_COLLATE'
+      - 'LC_MONETARY'
+      - 'LC_MESSAGES'
+      - 'LC_PAPER'
+      - 'LC_NAME'
+      - 'LC_ADDRESS'
+      - 'LC_TELEPHONE'
+      - 'LC_MEASUREMENT'
+      - 'LC_IDENTIFICATION'
+      - 'LC_ALL'
+      - 'LANGUAGE'
+      - 'XMODIFIERS'
+openssh::client::manage_package: true
+openssh::client::package_name: 'openssh-client'
+
+openssh::server::accept_env:
+  - 'LANG'
+  - 'LC_CTYPE'
+  - 'LC_NUMERIC'
+  - 'LC_TIME'
+  - 'LC_COLLATE'
+  - 'LC_MONETARY'
+  - 'LC_MESSAGES'
+  - 'LC_PAPER'
+  - 'LC_NAME'
+  - 'LC_ADDRESS'
+  - 'LC_TELEPHONE'
+  - 'LC_MEASUREMENT'
+  - 'LC_IDENTIFICATION'
+  - 'LC_ALL'
+  - 'LANGUAGE'
+  - 'XMODIFIERS'
+openssh::server::challenge_response_authentication: false
+openssh::server::gssapi_authentication: true
+openssh::server::manage_package: true
+openssh::server::package_name: 'openssh-server'
+openssh::server::password_authentication: true
+openssh::server::syslog_facility: 'AUTHPRIV'
+openssh::server::use_pam: true
+openssh::server::x11_forwarding: true
+
+openssh::server::ldap::package_name: 'openssh-ldap'
+
+openssh::server::sftp::manage_package: false
+openssh::server::sftp::command: '/usr/libexec/openssh/sftp-server'

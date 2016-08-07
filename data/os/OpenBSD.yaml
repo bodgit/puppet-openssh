@@ -1,0 +1,7 @@
+---
+openssh::client::manage_package: false
+openssh::server::authorized_keys_file: '.ssh/authorized_keys'
+openssh::server::manage_package: false
+openssh::server::ldap::package_name: 'ssh-ldap-helper'
+openssh::server::sftp::manage_package: false
+openssh::server::sftp::command: '/usr/libexec/sftp-server'

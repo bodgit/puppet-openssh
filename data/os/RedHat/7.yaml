@@ -1,0 +1,8 @@
+---
+openssh::server::authorized_keys_file: '.ssh/authorized_keys'
+openssh::server::gssapi_cleanup_credentials: false
+openssh::server::host_key:
+  - "%{lookup('openssh::server::conf_dir')}/ssh_host_rsa_key"
+  - "%{lookup('openssh::server::conf_dir')}/ssh_host_ecdsa_key"
+  - "%{lookup('openssh::server::conf_dir')}/ssh_host_ed25519_key"
+openssh::server::use_privilege_separation: 'sandbox'

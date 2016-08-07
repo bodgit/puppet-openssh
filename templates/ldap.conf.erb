@@ -1,0 +1,73 @@
+# !!! Managed by Puppet !!!
+
+uri <%= @uri.join(' ') %>
+base <%= @base_dn %>
+<% if @bind_dn -%>
+binddn <%= @bind_dn %>
+<% end -%>
+<% if @bind_pw -%>
+bindpw <%= @bind_pw %>
+<% end -%>
+<% if @version -%>
+ldap_version <%= @version %>
+<% end -%>
+<% if @scope -%>
+scope <%= @scope %>
+<% end -%>
+<% if @deref -%>
+deref <%= @deref %>
+<% end -%>
+<% if @time_limit -%>
+timelimit <%= @time_limit %>
+<% end -%>
+<% if @bind_time_limit -%>
+bind_timelimit <%= @bind_time_limit %>
+<% end -%>
+<% if @bind_policy -%>
+bind_policy <%= @bind_policy %>
+<% end -%>
+<% unless @ssl.nil? -%>
+ssl <%= @ssl.is_a?(String) ? @ssl : @ssl ? 'yes' : 'no' %>
+<% end -%>
+<% unless @referrals.nil? -%>
+referrals <%= @referrals ? 'yes' : 'no' %>
+<% end -%>
+<% unless @restart.nil? -%>
+restart <%= @restart ? 'yes' : 'no' %>
+<% end -%>
+<% if @tls_check_peer -%>
+tls_checkpeer <%= @tls_check_peer %>
+<% end -%>
+<% if @tls_cacert_file -%>
+tls_cacertfile <%= @tls_cacert_file %>
+<% end -%>
+<% if @tls_cacert_dir -%>
+tls_cacertdir <%= @tls_cacert_dir %>
+<% end -%>
+<% if @tls_randfile -%>
+tls_randfile <%= @tls_randfile %>
+<% end -%>
+<% if @tls_ciphers -%>
+tls_ciphers <%= @tls_ciphers %>
+<% end -%>
+<% if @tls_cert -%>
+tls_cert <%= @tls_cert %>
+<% end -%>
+<% if @tls_key -%>
+tls_key <%= @tls_key %>
+<% end -%>
+<% if @log_dir -%>
+logdir <%= @log_dir %>
+<% end -%>
+<% if @debug -%>
+debug <%= @debug %>
+<% end -%>
+<% if @filter -%>
+ssh_filter <%= @filter %>
+<% end -%>
+<% if @search_format -%>
+search_format <%= @search_format %>
+<% end -%>
+<% if @account_class -%>
+accountclass <%= @account_class %>
+<% end -%>

@@ -1,0 +1,291 @@
+
+<% if @ignore_unknown -%>
+IgnoreUnknown <%= @ignore_unknown.join(',') %>
+<% end -%>
+<% unless @add_keys_to_agent.nil? -%>
+AddKeysToAgent <%= @add_keys_to_agent.is_a?(String) ? @add_keys_to_agent : @add_keys_to_agent ? 'yes' : 'no' %>
+<% end -%>
+<% if @address_family -%>
+AddressFamily <%= @address_family %>
+<% end -%>
+<% unless @batch_mode.nil? -%>
+BatchMode <%= @batch_mode ? 'yes' : 'no' %>
+<% end -%>
+<% if @bind_address -%>
+BindAddress <%= @bind_address %>
+<% end -%>
+<% if @canonical_domains -%>
+CanonicalDomains <%= @canonical_domains.join(' ') %>
+<% end -%>
+<% unless @canonicalize_fallback_local.nil? -%>
+CanonicalizeFallbackLocal <%= @canonicalize_fallback_local ? 'yes' : 'no' %>
+<% end -%>
+<% unless @canonicalize_hostname.nil? -%>
+CanonicalizeHostname <%= @canonicalize_hostname.is_a?(String) ? @canonicalize_hostname : @canonicalize_hostname ? 'yes' : 'no' %>
+<% end -%>
+<% if @canonicalize_max_dots -%>
+CanonicalizeMaxDots <%= @canonicalize_max_dots %>
+<% end -%>
+<% if @canonicalize_permitted_cnames -%>
+CanonicalizePermittedCNAMEs <%= @canonicalize_permitted_cnames.collect { |x| [x[0].join(','), x[1].join(',')].join(':') }.join(' ') %>
+<% end -%>
+<% if @certificate_file -%>
+<%   @certificate_file.each do |x| -%>
+CertificateFile <%= x %>
+<%   end -%>
+<% end -%>
+<% unless @challenge_response_authentication.nil? -%>
+ChallengeReponseAuthentication <%= @challenge_response_authentication ? 'yes' : 'no' %>
+<% end -%>
+<% unless @check_host_ip.nil? -%>
+CheckHostIP <%= @check_host_ip ? 'yes' : 'no' %>
+<% end -%>
+<% if @cipher -%>
+Cipher <%= @cipher %>
+<% end -%>
+<% if @ciphers -%>
+Ciphers <%= @ciphers.join(',') %>
+<% end -%>
+<% unless @clear_all_forwardings.nil? -%>
+ClearAllForwardings <%= @clear_all_forwardings ? 'yes' : 'no' %>
+<% end -%>
+<% unless @compression.nil? -%>
+Compression <%= @compression ? 'yes' : 'no' %>
+<% end -%>
+<% if @compression_level -%>
+CompressionLevel <%= @compression_level %>
+<% end -%>
+<% if @connection_attempts -%>
+ConnectionAttempts <%= @connection_attempts %>
+<% end -%>
+<% if @connection_timeout -%>
+ConnectionTimeout <%= @connection_timeout %>
+<% end -%>
+<% unless @control_master.nil? -%>
+ControlMaster <%= @control_master.is_a?(String) ? @control_master : @control_master ? 'yes' : 'no' %>
+<% end -%>
+<% if @control_path -%>
+ControlPath <%= @control_path %>
+<% end -%>
+<% unless @control_persist.nil? -%>
+ControlPersist <%= @control_persist ? 'yes' : 'no' %>
+<% end -%>
+<% if @_dynamic_forward -%>
+DynamicForward <%= @_dynamic_forward.collect { |x| Array(x).join(':') }.join(' ') %>
+<% end -%>
+<% unless @enable_ssh_keysign.nil? -%>
+EnableSSHKeysign <%= @enable_ssh_keysign ? 'yes' : 'no' %>
+<% end -%>
+<% if @escape_char -%>
+EscapeChar <%= @escape_char %>
+<% end -%>
+<% unless @exit_on_forward_failure.nil? -%>
+ExitOnForwardFailure <%= @exit_on_forward_failure ? 'yes' : 'no' %>
+<% end -%>
+<% if @fingerprint_hash -%>
+FingerprintHash <%= @fingerprint_hash.join(' ') %>
+<% end -%>
+<% unless @forward_agent.nil? -%>
+ForwardAgent <%= @forward_agent ? 'yes' : 'no' %>
+<% end -%>
+<% unless @forward_x11.nil? -%>
+ForwardX11 <%= @forward_x11 ? 'yes' : 'no' %>
+<% end -%>
+<% if @forward_x11_timeout -%>
+ForwardX11Timeout <%= @forward_x11_timeout %>
+<% end -%>
+<% unless @forward_x11_trusted.nil? -%>
+ForwardX11Trusted <%= @forward_x11_trusted ? 'yes' : 'no' %>
+<% end -%>
+<% unless @gateway_ports.nil? -%>
+GatewayPorts <%= @gateway_ports ? 'yes' : 'no' %>
+<% end -%>
+<% if @global_known_hosts_file -%>
+GlobalKnownHostsFile <%= @global_known_hosts_file.join(' ') %>
+<% end -%>
+<% unless @gssapi_authentication.nil? -%>
+GSSAPIAuthentication <%= @gssapi_authentication ? 'yes' : 'no' %>
+<% end -%>
+<% if @gssapi_client_identity -%>
+GSSAPIClientIdentity <%= @gssapi_client_identity %>
+<% end -%>
+<% unless @gssapi_delegate_credentials.nil? -%>
+GSSAPIDelegateCredentials <%= @gssapi_delegate_credentials ? 'yes' : 'no' %>
+<% end -%>
+<% unless @gssapi_key_exchange.nil? -%>
+GSSAPIKeyExchange <%= @gssapi_key_exchange ? 'yes' : 'no' %>
+<% end -%>
+<% unless @gssapi_renewal_forces_rekey.nil? -%>
+GSSAPIRenewalForcesRekey <%= @gssapi_renewal_forces_rekey ? 'yes' : 'no' %>
+<% end -%>
+<% if @gssapi_server_identity -%>
+GSSAPIServerIdentity <%= @gssapi_server_identity %>
+<% end -%>
+<% unless @gssapi_trust_dns.nil? -%>
+GSSAPITrustDns <%= @gssapi_trust_dns %>
+<% end -%>
+<% if @gssapi_kex_algorithms -%>
+GSSAPIKexAlgorithms <%= @gssapi_kex_algorithms.join(',') %>
+<% end -%>
+<% unless @hash_known_hosts.nil? -%>
+HashKnownHosts <%= @hash_known_hosts ? 'yes' : 'no' %>
+<% end -%>
+<% unless @hostbased_authentication.nil? -%>
+HostbasedAuthentication <%= @hostbased_authentication ? 'yes' : 'no' %>
+<% end -%>
+<% if @hostbased_key_types -%>
+HostbasedKeyTypes <%= @hostbased_key_types.join(',') %>
+<% end -%>
+<% if @host_key_algorithms -%>
+HostKeyAlgorithms <%= @host_key_algorithms.join(',') %>
+<% end -%>
+<% if @host_key_alias -%>
+HostKeyAlias <%= @host_key_alias %>
+<% end -%>
+<% if @host_name -%>
+HostName <%= @host_name %>
+<% end -%>
+<% unless @identities_only.nil? -%>
+IdentitiesOnly <%= @identities_only ? 'yes' : 'no' %>
+<% end -%>
+<% if @identity_agent -%>
+IdentityAgent <%= @identity_agent %>
+<% end -%>
+<% if @identity_file -%>
+<%   @identity_file.each do |x| -%>
+IdentityFile <%= x %>
+<%   end -%>
+<% end -%>
+<% if @ip_qos -%>
+IPQoS <%= @ip_qos.join(' ') %>
+<% end -%>
+<% unless @kbd_interactive_authentication.nil? -%>
+KbdInteractiveAuthentication <%= @kbd_interactive_authentication ? 'yes' : 'no' %>
+<% end -%>
+<% if @kbd_interactive_devices -%>
+KbdInteractiveDevices <%= @kbd_interactive_devices.join(',') %>
+<% end -%>
+<% if @kex_algorithms -%>
+KexAlgorithms <%= @kex_algorithms.join(',') %>
+<% end -%>
+<% if @local_command -%>
+LocalCommand <%= @local_command %>
+<% end -%>
+<% if @_local_forward -%>
+<%   @_local_forward.each do |x| -%>
+LocalForward <%= [Array(x[0]).join(':'), x[1].join(':')].join(' ') %>
+<%   end -%>
+<% end -%>
+<% if @log_level -%>
+LogLevel <%= @log_level %>
+<% end -%>
+<% if @macs -%>
+MACs <%= @macs.join(',') %>
+<% end -%>
+<% unless @no_host_authentication_for_localhost.nil? -%>
+NoHostAuthenticationForLocalhost <%= @no_host_authentication_for_localhost ? 'yes' : 'no' %>
+<% end -%>
+<% if @number_of_password_prompts -%>
+NumberOfPasswordPrompts <%= @number_of_password_prompts %>
+<% end -%>
+<% unless @password_authentication.nil? -%>
+PasswordAuthentication <%= @password_authentication ? 'yes' : 'no' %>
+<% end -%>
+<% unless @permit_local_command.nil? -%>
+PermitLocalCommand <%= @permit_local_command ? 'yes' : 'no' %>
+<% end -%>
+<% if @pkcs11_provider -%>
+PKCS11Provider <%= @pkcs11_provider %>
+<% end -%>
+<% if @port -%>
+Port <%= @port %>
+<% end -%>
+<% if @preferred_authentications -%>
+PreferredAuthentications <%= @preferred_authentications.join(',') %>
+<% end -%>
+<% if @protocol -%>
+Protocol <%= @protocol.join(',') %>
+<% end -%>
+<% if @proxy_command -%>
+ProxyCommand <%= @proxy_command %>
+<% end -%>
+<% if @_proxy_jump -%>
+ProxyJump <%= @_proxy_jump.join(',') %>
+<% end -%>
+<% unless @proxy_use_fdpass.nil? -%>
+ProxyUseFdpass <%= @proxy_use_fdpass ? 'yes' : 'no' %>
+<% end -%>
+<% if @pubkey_accepted_key_types -%>
+PubkeyAcceptedKeyTypes <%= @pubkey_accepted_key_types.join(',') %>
+<% end -%>
+<% unless @pubkey_authentication.nil? -%>
+PubkeyAuthentication <%= @pubkey_authentication ? 'yes' : 'no' %>
+<% end -%>
+<% if @rekey_limit -%>
+RekeyLimit <%= @rekey_limit %>
+<% end -%>
+<% if @_remote_forward -%>
+<%   @_remote_forward.each do |x| -%>
+RemoteForward <%= [Array(x[0]).join(':'), x[1].join(':')].join(' ') %>
+<%   end -%>
+<% end -%>
+<% unless @request_tty.nil? -%>
+RequestTTY <%= @request_tty.is_a?(String) ? @request_tty : @request_tty ? 'yes' : 'no' %>
+<% end -%>
+<% if @revoked_host_keys -%>
+RevokedHostKeys <%= @revoked_host_keys %>
+<% end -%>
+<% unless @rhosts_rsa_authentication.nil? -%>
+RhostsRSAAuthentication <%= @rhosts_rsa_authentication ? 'yes' : 'no' %>
+<% end -%>
+<% unless @rsa_authentication.nil? -%>
+RSAAuthentication <%= @rsa_authentication ? 'yes' : 'no' %>
+<% end -%>
+<% if @send_env -%>
+SendEnv <%= @send_env.join(' ') %>
+<% end -%>
+<% if @server_alive_count_max -%>
+ServerAliveCountMax <%= @server_alive_count_max %>
+<% end -%>
+<% if @server_alive_interval -%>
+ServerAliveInterval <%= @server_alive_interval %>
+<% end -%>
+<% if @stream_local_bind_mask -%>
+StreamLocalBindMask <%= @stream_local_bind_mask %>
+<% end -%>
+<% unless @stream_local_bind_unlink.nil? -%>
+StreamLocalBindUnlink <%= @stream_local_bind_unlink ? 'yes' : 'no' %>
+<% end -%>
+<% unless @strict_host_key_checking.nil? -%>
+StrictHostKeyChecking <%= @strict_host_key_checking.is_a?(String) ? @strict_host_key_checking : @strict_host_key_checking ? 'yes' : 'no' %>
+<% end -%>
+<% unless @tcp_keep_alive.nil? -%>
+TCPKeepAlive <%= @tcp_keep_alive ? 'yes' : 'no' %>
+<% end -%>
+<% unless @tunnel.nil? -%>
+Tunnel <%= @tunnel.is_a?(String) ? @tunnel : @tunnel ? 'yes' : 'no' %>
+<% end -%>
+<% if @tunnel_device -%>
+TunnelDevice <%= Array(@tunnel_device).join(':') %>
+<% end -%>
+<% unless @update_host_keys.nil? -%>
+UpdateHostKeys <%= @update_host_keys.is_a?(String) ? @update_host_keys : @update_host_keys ? 'yes' : 'no' %>
+<% end -%>
+<% unless @use_privileged_port.nil? -%>
+UsePrivilegedPort <%= @use_privileged_port ? 'yes' : 'no' %>
+<% end -%>
+<% if @user -%>
+User <%= @user %>
+<% end -%>
+<% if @user_known_hosts_file -%>
+UserKnownHostsFile <%= @user_known_hosts_file.join(' ') %>
+<% end -%>
+<% unless @verify_host_key_dns.nil? -%>
+VerifyHostKeyDNS <%= @verify_host_key_dns.is_a?(String) ? @verify_host_key_dns : @verify_host_key_dns ? 'yes' : 'no' %>
+<% end -%>
+<% unless @visual_host_key.nil? -%>
+VisualHostKey <%= @visual_host_key ? 'yes' : 'no' %>
+<% end -%>
+<% if @xauth_location -%>
+XAuthLocation <%= @xauth_location %>
+<% end -%>
