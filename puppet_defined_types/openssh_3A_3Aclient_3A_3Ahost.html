@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Defined Type: openssh::client::host
+  
+    &mdash; Documentation by YARD 0.9.14
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "puppet_defined_types::openssh::client::host";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../puppet_defined_type_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (o)</a> &raquo;
+    <span class='title'><span class='object_link'>Defined Types</span></span>
+     &raquo; 
+    <span class="title">openssh::client::host</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="puppet_class_list_link"
+        href="../puppet_class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Defined Type: openssh::client::host</h1>
+<div class="box_info">
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>
+      manifests/client/host.pp
+    </dd>
+  </dl>
+</div>
+
+<h2>Overview</h2>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Declare a client host block</p>
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'>
+<p>Declaring a default host block</p>
+</div></p>
+      
+      <pre class="example code"><code>include ::openssh::client
+::openssh::client::configuration { &#39;/home/user/.ssh/config&#39;:
+  owner =&gt; &#39;user&#39;,
+  group =&gt; &#39;user&#39;,
+  mode  =&gt; &#39;0640&#39;,
+}
+::openssh::client::host { &#39;default&#39;:
+  host          =&gt; &#39;*&#39;,
+  target        =&gt; &#39;/home/user/.ssh/config&#39;,
+  order         =&gt; 99,
+  proxy_command =&gt; &#39;/usr/bin/nc -X connect -x 192.0.2.0:8080 %h %p&#39;,
+}</code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>host</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>target</span>
+      
+      
+        <span class='type'>(<tt>Stdlib::Absolutepath</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>order</span>
+      
+      
+        <span class='type'>(<tt>Variant[Integer[0], String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>10</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>add_keys_to_agent</span>
+      
+      
+        <span class='type'>(<tt>Optional[Variant[Boolean, Enum['ask', 'confirm']]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>address_family</span>
+      
+      
+        <span class='type'>(<tt>Optional[Enum['any', 'inet', 'inet6']]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>batch_mode</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>bind_address</span>
+      
+      
+        <span class='type'>(<tt>Optional[IP::Address::NoSubnet]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>canonical_domains</span>
+      
+      
+        <span class='type'>(<tt>Optional[Array[Bodgitlib::Domain, 1]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>canonicalize_fallback_local</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>canonicalize_hostname</span>
+      
+      
+        <span class='type'>(<tt>Optional[Variant[Boolean, Enum['always']]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>canonicalize_max_dots</span>
+      
+      
+        <span class='type'>(<tt>Optional[Integer[0]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>canonicalize_permitted_cnames</span>
+      
+      
+        <span class='type'>(<tt>Optional[Array[Tuple[Array[String, 1], Array[String, 1]], 1]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>certificate_file</span>
+      
+      
+        <span class='type'>(<tt>Optional[Array[String, 1]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>challenge_response_authentication</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>check_host_ip</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>cipher</span>
+      
+      
+        <span class='type'>(<tt>Optional[Enum['blowfish', '3des', 'des']]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ciphers</span>
+      
+      
+        <span class='type'>(<tt>Optional[Array[String, 1]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>clear_all_forwardings</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>compression</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>compression_level</span>
+      
+      
+        <span class='type'>(<tt>Optional[Integer[1, 9]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>connection_attempts</span>
+      
+      
+        <span class='type'>(<tt>Optional[Integer[1]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>connect_timeout</span>
+      
+      
+        <span class='type'>(<tt>Optional[Integer[0]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>control_master</span>
+      
+      
+        <span class='type'>(<tt>Optional[Variant[Boolean, Enum['ask', 'auto', 'autoask']]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>control_path</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>control_persist</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dynamic_forward</span>
+      
+      
+        <span class='type'>(<tt>Optional[Array[OpenSSH::Forward::Dynamic, 1]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>escape_char</span>
+      
+      
+        <span class='type'>(<tt>Optional[Variant[String[1, 1], Pattern[/(?x) ^ \^ [a-zA-Z] $ /], Enum['none']]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>exit_on_forward_failure</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>fingerprint_hash</span>
+      
+      
+        <span class='type'>(<tt>Optional[Array[Enum['md5', 'sha256'], 1]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>forward_agent</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>forward_x11</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>forward_x11_timeout</span>
+      
+      
+        <span class='type'>(<tt>Optional[OpenSSH::TimeFormat]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>forward_x11_trusted</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>gateway_ports</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>global_known_hosts_file</span>
+      
+      
+        <span class='type'>(<tt>Optional[Array[Stdlib::Absolutepath, 1]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>gssapi_authentication</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>gssapi_client_identity</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>gssapi_delegate_credentials</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>gssapi_key_exchange</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>gssapi_renewal_forces_rekey</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>gssapi_server_identity</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>gssapi_trust_dns</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>gssapi_kex_algorithms</span>
+      
+      
+        <span class='type'>(<tt>Optional[Array[String, 1]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>hash_known_hosts</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>hostbased_authentication</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>hostbased_key_types</span>
+      
+      
+        <span class='type'>(<tt>Optional[Array[String, 1]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>host_key_algorithms</span>
+      
+      
+        <span class='type'>(<tt>Optional[Array[String, 1]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>host_key_alias</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>host_name</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>identities_only</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>identity_agent</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>identity_file</span>
+      
+      
+        <span class='type'>(<tt>Optional[Array[String, 1]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ignore_unknown</span>
+      
+      
+        <span class='type'>(<tt>Optional[Array[String, 1]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ip_qos</span>
+      
+      
+        <span class='type'>(<tt>Optional[Tuple[OpenSSH::QoS, 1, 2]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>kbd_interactive_authentication</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>kbd_interactive_devices</span>
+      
+      
+        <span class='type'>(<tt>Optional[Array[Enum['bsdauth', 'pam', 'skey'], 1]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>kex_algorithms</span>
+      
+      
+        <span class='type'>(<tt>Optional[Array[String, 1]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>local_command</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>local_forward</span>
+      
+      
+        <span class='type'>(<tt>Optional[Array[OpenSSH::Forward::Local, 1]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>log_level</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>macs</span>
+      
+      
+        <span class='type'>(<tt>Optional[Array[String, 1]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>no_host_authentication_for_localhost</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>number_of_password_prompts</span>
+      
+      
+        <span class='type'>(<tt>Optional[Integer[1]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>password_authentication</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>permit_local_command</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>pkcs11_provider</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>port</span>
+      
+      
+        <span class='type'>(<tt>Optional[Bodgitlib::Port]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>preferred_authentications</span>
+      
+      
+        <span class='type'>(<tt>Optional[Array[String, 1]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>protocol</span>
+      
+      
+        <span class='type'>(<tt>Optional[Array[Integer[1, 2], 1, 2]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>proxy_command</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>proxy_jump</span>
+      
+      
+        <span class='type'>(<tt>Optional[Array[OpenSSH::Proxy, 1]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>proxy_use_fdpass</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>pubkey_accepted_key_types</span>
+      
+      
+        <span class='type'>(<tt>Optional[Array[String, 1]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>pubkey_authentication</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>rekey_limit</span>
+      
+      
+        <span class='type'>(<tt>Optional[OpenSSH::RekeyLimit]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>remote_forward</span>
+      
+      
+        <span class='type'>(<tt>Optional[Array[OpenSSH::Forward::Remote, 1]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>request_tty</span>
+      
+      
+        <span class='type'>(<tt>Optional[Variant[Boolean, Enum['auto', 'force']]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>revoked_host_keys</span>
+      
+      
+        <span class='type'>(<tt>Optional[Stdlib::Absolutepath]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>rhosts_rsa_authentication</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>rsa_authentication</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>send_env</span>
+      
+      
+        <span class='type'>(<tt>Optional[Array[String, 1]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>server_alive_count_max</span>
+      
+      
+        <span class='type'>(<tt>Optional[Integer[0]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>server_alive_interval</span>
+      
+      
+        <span class='type'>(<tt>Optional[Integer[0]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>stream_local_bind_mask</span>
+      
+      
+        <span class='type'>(<tt>Optional[Pattern[/(?x) ^ [0-7]{4} $ /]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>stream_local_bind_unlink</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>strict_host_key_checking</span>
+      
+      
+        <span class='type'>(<tt>Optional[Variant[Boolean, Enum['ask']]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>tcp_keep_alive</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>tunnel</span>
+      
+      
+        <span class='type'>(<tt>Optional[Variant[Boolean, Enum['ethernet', 'point-to-point']]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>tunnel_device</span>
+      
+      
+        <span class='type'>(<tt>Optional[Variant[Integer[0], Enum['any'], Tuple[Variant[Integer[0], Enum['any']], 2, 2]]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>update_host_keys</span>
+      
+      
+        <span class='type'>(<tt>Optional[Variant[Boolean, Enum['ask']]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>use_privileged_port</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>user</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>user_known_hosts_file</span>
+      
+      
+        <span class='type'>(<tt>Optional[Array[String, 1]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>verify_host_key_dns</span>
+      
+      
+        <span class='type'>(<tt>Optional[Variant[Boolean, Enum['ask']]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>visual_host_key</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>xauth_location</span>
+      
+      
+        <span class='type'>(<tt>Optional[Stdlib::Absolutepath]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>undef</tt>)</em>
+      
+      
+    </li>
+  
+</ul>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="../puppet_classes/openssh_3A_3Aclient.html" title="puppet_classes::openssh::client (puppet_class)">::openssh::client</a></span></li>
+    
+      <li><span class='object_link'><a href="openssh_3A_3Aclient_3A_3Aconfiguration.html" title="puppet_defined_types::openssh::client::configuration (puppet_defined_type)">::openssh::client::configuration</a></span></li>
+    
+      <li><span class='object_link'><a href="openssh_3A_3Aclient_3A_3Amatch.html" title="puppet_defined_types::openssh::client::match (puppet_defined_type)">::openssh::client::match</a></span></li>
+    
+  </ul>
+
+</div><div class="method_details_list">
+  <table class="source_code">
+    <tr>
+      <td>
+        <pre class="lines">
+
+
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278</pre>
+      </td>
+      <td>
+        <pre class="code"><span class="info file"># File 'manifests/client/host.pp', line 117</span>
+
+define openssh::client::host (
+  String                                                                                    $host,
+  Stdlib::Absolutepath                                                                      $target,
+  Variant[Integer[0], String]                                                               $order                                = 10,
+  # ssh_config settings below
+  Optional[Variant[Boolean, Enum[&#39;ask&#39;, &#39;confirm&#39;]]]                                        $add_keys_to_agent                    = undef,
+  Optional[Enum[&#39;any&#39;, &#39;inet&#39;, &#39;inet6&#39;]]                                                    $address_family                       = undef,
+  Optional[Boolean]                                                                         $batch_mode                           = undef,
+  Optional[IP::Address::NoSubnet]                                                           $bind_address                         = undef,
+  Optional[Array[Bodgitlib::Domain, 1]]                                                     $canonical_domains                    = undef,
+  Optional[Boolean]                                                                         $canonicalize_fallback_local          = undef,
+  Optional[Variant[Boolean, Enum[&#39;always&#39;]]]                                                $canonicalize_hostname                = undef,
+  Optional[Integer[0]]                                                                      $canonicalize_max_dots                = undef,
+  Optional[Array[Tuple[Array[String, 1], Array[String, 1]], 1]]                             $canonicalize_permitted_cnames        = undef,
+  Optional[Array[String, 1]]                                                                $certificate_file                     = undef,
+  Optional[Boolean]                                                                         $challenge_response_authentication    = undef,
+  Optional[Boolean]                                                                         $check_host_ip                        = undef,
+  Optional[Enum[&#39;blowfish&#39;, &#39;3des&#39;, &#39;des&#39;]]                                                 $cipher                               = undef,
+  Optional[Array[String, 1]]                                                                $ciphers                              = undef,
+  Optional[Boolean]                                                                         $clear_all_forwardings                = undef,
+  Optional[Boolean]                                                                         $compression                          = undef,
+  Optional[Integer[1, 9]]                                                                   $compression_level                    = undef,
+  Optional[Integer[1]]                                                                      $connection_attempts                  = undef,
+  Optional[Integer[0]]                                                                      $connect_timeout                      = undef,
+  Optional[Variant[Boolean, Enum[&#39;ask&#39;, &#39;auto&#39;, &#39;autoask&#39;]]]                                $control_master                       = undef,
+  Optional[String]                                                                          $control_path                         = undef,
+  Optional[Boolean]                                                                         $control_persist                      = undef,
+  Optional[Array[OpenSSH::Forward::Dynamic, 1]]                                             $dynamic_forward                      = undef,
+  Optional[Variant[String[1, 1], Pattern[/(?x) ^ \^ [a-zA-Z] $ /], Enum[&#39;none&#39;]]]           $escape_char                          = undef,
+  Optional[Boolean]                                                                         $exit_on_forward_failure              = undef,
+  Optional[Array[Enum[&#39;md5&#39;, &#39;sha256&#39;], 1]]                                                 $fingerprint_hash                     = undef,
+  Optional[Boolean]                                                                         $forward_agent                        = undef,
+  Optional[Boolean]                                                                         $forward_x11                          = undef,
+  Optional[OpenSSH::TimeFormat]                                                             $forward_x11_timeout                  = undef,
+  Optional[Boolean]                                                                         $forward_x11_trusted                  = undef,
+  Optional[Boolean]                                                                         $gateway_ports                        = undef,
+  Optional[Array[Stdlib::Absolutepath, 1]]                                                  $global_known_hosts_file              = undef,
+  Optional[Boolean]                                                                         $gssapi_authentication                = undef,
+  Optional[String]                                                                          $gssapi_client_identity               = undef,
+  Optional[Boolean]                                                                         $gssapi_delegate_credentials          = undef,
+  Optional[Boolean]                                                                         $gssapi_key_exchange                  = undef,
+  Optional[Boolean]                                                                         $gssapi_renewal_forces_rekey          = undef,
+  Optional[String]                                                                          $gssapi_server_identity               = undef,
+  Optional[Boolean]                                                                         $gssapi_trust_dns                     = undef,
+  Optional[Array[String, 1]]                                                                $gssapi_kex_algorithms                = undef,
+  Optional[Boolean]                                                                         $hash_known_hosts                     = undef,
+  Optional[Boolean]                                                                         $hostbased_authentication             = undef,
+  Optional[Array[String, 1]]                                                                $hostbased_key_types                  = undef,
+  Optional[Array[String, 1]]                                                                $host_key_algorithms                  = undef,
+  Optional[String]                                                                          $host_key_alias                       = undef,
+  Optional[String]                                                                          $host_name                            = undef,
+  Optional[Boolean]                                                                         $identities_only                      = undef,
+  Optional[String]                                                                          $identity_agent                       = undef,
+  Optional[Array[String, 1]]                                                                $identity_file                        = undef,
+  Optional[Array[String, 1]]                                                                $ignore_unknown                       = undef,
+  Optional[Tuple[OpenSSH::QoS, 1, 2]]                                                       $ip_qos                               = undef,
+  Optional[Boolean]                                                                         $kbd_interactive_authentication       = undef,
+  Optional[Array[Enum[&#39;bsdauth&#39;, &#39;pam&#39;, &#39;skey&#39;], 1]]                                        $kbd_interactive_devices              = undef,
+  Optional[Array[String, 1]]                                                                $kex_algorithms                       = undef,
+  Optional[String]                                                                          $local_command                        = undef,
+  Optional[Array[OpenSSH::Forward::Local, 1]]                                               $local_forward                        = undef,
+  Optional[String]                                                                          $log_level                            = undef,
+  Optional[Array[String, 1]]                                                                $macs                                 = undef,
+  Optional[Boolean]                                                                         $no_host_authentication_for_localhost = undef,
+  Optional[Integer[1]]                                                                      $number_of_password_prompts           = undef,
+  Optional[Boolean]                                                                         $password_authentication              = undef,
+  Optional[Boolean]                                                                         $permit_local_command                 = undef,
+  Optional[String]                                                                          $pkcs11_provider                      = undef,
+  Optional[Bodgitlib::Port]                                                                 $port                                 = undef,
+  Optional[Array[String, 1]]                                                                $preferred_authentications            = undef,
+  Optional[Array[Integer[1, 2], 1, 2]]                                                      $protocol                             = undef,
+  Optional[String]                                                                          $proxy_command                        = undef,
+  Optional[Array[OpenSSH::Proxy, 1]]                                                        $proxy_jump                           = undef,
+  Optional[Boolean]                                                                         $proxy_use_fdpass                     = undef,
+  Optional[Array[String, 1]]                                                                $pubkey_accepted_key_types            = undef,
+  Optional[Boolean]                                                                         $pubkey_authentication                = undef,
+  Optional[OpenSSH::RekeyLimit]                                                             $rekey_limit                          = undef,
+  Optional[Array[OpenSSH::Forward::Remote, 1]]                                              $remote_forward                       = undef,
+  Optional[Variant[Boolean, Enum[&#39;auto&#39;, &#39;force&#39;]]]                                         $request_tty                          = undef,
+  Optional[Stdlib::Absolutepath]                                                            $revoked_host_keys                    = undef,
+  Optional[Boolean]                                                                         $rhosts_rsa_authentication            = undef,
+  Optional[Boolean]                                                                         $rsa_authentication                   = undef,
+  Optional[Array[String, 1]]                                                                $send_env                             = undef,
+  Optional[Integer[0]]                                                                      $server_alive_count_max               = undef,
+  Optional[Integer[0]]                                                                      $server_alive_interval                = undef,
+  Optional[Pattern[/(?x) ^ [0-7]{4} $ /]]                                                   $stream_local_bind_mask               = undef,
+  Optional[Boolean]                                                                         $stream_local_bind_unlink             = undef,
+  Optional[Variant[Boolean, Enum[&#39;ask&#39;]]]                                                   $strict_host_key_checking             = undef,
+  Optional[Boolean]                                                                         $tcp_keep_alive                       = undef,
+  Optional[Variant[Boolean, Enum[&#39;ethernet&#39;, &#39;point-to-point&#39;]]]                            $tunnel                               = undef,
+  Optional[Variant[Integer[0], Enum[&#39;any&#39;], Tuple[Variant[Integer[0], Enum[&#39;any&#39;]], 2, 2]]] $tunnel_device                        = undef,
+  Optional[Variant[Boolean, Enum[&#39;ask&#39;]]]                                                   $update_host_keys                     = undef,
+  Optional[Boolean]                                                                         $use_privileged_port                  = undef,
+  Optional[String]                                                                          $user                                 = undef,
+  Optional[Array[String, 1]]                                                                $user_known_hosts_file                = undef,
+  Optional[Variant[Boolean, Enum[&#39;ask&#39;]]]                                                   $verify_host_key_dns                  = undef,
+  Optional[Boolean]                                                                         $visual_host_key                      = undef,
+  Optional[Stdlib::Absolutepath]                                                            $xauth_location                       = undef,
+) {
+
+  if ! defined(Class[&#39;::openssh::client&#39;]) {
+    fail(&#39;You must include the openssh::client base class before using any openssh::client defined resources&#39;)
+  }
+
+  $_dynamic_forward = $dynamic_forward ? {
+    undef   =&gt; undef,
+    default =&gt; $dynamic_forward.map |$x| {
+      type($x) ? {
+        Type[Tuple] =&gt; [bodgitlib::enclose_ipv6($x[0]), $x[1]],
+        default     =&gt; $x,
+      }
+    },
+  }
+
+  $_local_forward = $local_forward ? {
+    undef   =&gt; undef,
+    default =&gt; $local_forward.map |$x| {
+      type($x[0]) ? {
+        Type[Tuple] =&gt; [[bodgitlib::enclose_ipv6($x[0][0]), $x[0][1]], [bodgitlib::enclose_ipv6($x[1][0]), $x[1][1]]],
+        default     =&gt; [$x[0], [bodgitlib::enclose_ipv6($x[1][0]), $x[1][1]]],
+      }
+    },
+  }
+
+  $_proxy_jump = $proxy_jump ? {
+    undef   =&gt; undef,
+    default =&gt; $proxy_jump.map |$x| {
+      type($x) ? {
+        Type[Tuple] =&gt; type($x[1]) ? {
+          Type[Integer] =&gt; sprintf(&#39;%s:%d&#39;, bodgitlib::enclose_ipv6($x[0]), $x[1]),
+          default       =&gt; length($x) ? {
+            2 =&gt; sprintf(&#39;%s@%s&#39;, $x[0], bodgitlib::enclose_ipv6($x[1])),
+            3 =&gt; sprintf(&#39;%s@%s:%d&#39;, $x[0], bodgitlib::enclose_ipv6($x[1]), $x[2]),
+          },
+        },
+        default     =&gt; $x, # XXX bodgitlib::enclose_ipv6($x) instead?
+      }
+    },
+  }
+
+  $_remote_forward = $remote_forward ? {
+    undef   =&gt; undef,
+    default =&gt; $remote_forward.map |$x| {
+      type($x[0]) ? {
+        Type[Tuple] =&gt; [[bodgitlib::enclose_ipv6($x[0][0]), $x[0][1]], [bodgitlib::enclose_ipv6($x[1][0]), $x[1][1]]],
+        default     =&gt; [$x[0], [bodgitlib::enclose_ipv6($x[1][0]), $x[1][1]]],
+      }
+    },
+  }
+
+  $content = template(&quot;${module_name}/client/host.erb&quot;)
+
+  # Only include a fragment if there some actual settings applied. If the last
+  # line of the fragment is the &#39;Host ...&#39; header, there are none
+  if split($content, &#39;\n&#39;)[-1] !~ /^Host / {
+    ::concat::fragment { &quot;${module_name} client ${target} host ${host}&quot;:
+      target  =&gt; $target,
+      order   =&gt; &quot;20-${order}&quot;,
+      content =&gt; $content,
+    }
+  }
+}</pre>
+      </td>
+    </tr>
+  </table>
+</div>
+</div>
+
+      <div id="footer">
+     Generated by <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>.
+</div>
+
+    </div>
+  </body>
+</html>
