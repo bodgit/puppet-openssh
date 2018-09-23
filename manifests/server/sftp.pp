@@ -4,15 +4,15 @@
 #   include ::openssh::server
 #   include ::openssh::server::sftp
 #
+# @param command
 # @param manage_package
 # @param package_name
-# @param command
 #
 # @see puppet_classes::openssh::server ::openssh::server
 class openssh::server::sftp (
+  Stdlib::Absolutepath $command,
   Boolean              $manage_package,
   Optional[String]     $package_name   = undef,
-  Stdlib::Absolutepath $command,
 ) {
 
   if ! defined(Class['::openssh::server']) {
