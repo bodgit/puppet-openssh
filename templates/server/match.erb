@@ -80,7 +80,7 @@ Match<% unless @user or @group or @host or @local_address or @local_port or @add
 	DenyUsers <%= @deny_users.join(' ') %>
 <% end -%>
 <% if @force_command -%>
-	ForceCommand <%= @force_command -%>
+	ForceCommand <%= @force_command %>
 <% end -%>
 <% unless @gateway_ports.nil? -%>
 	GatewayPorts <%= @gateway_ports.is_a?(String) ? @gateway_ports : @gateway_ports ? 'yes' : 'no' %>
