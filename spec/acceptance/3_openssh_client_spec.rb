@@ -43,7 +43,7 @@ describe 'openssh::client' do
     apply_manifest(pp, :catch_changes  => true)
   end
 
-  describe package('openssh-client'), :unless => fact('osfamily').eql?('OpenBSD') do
+  describe package('openssh-clients'), :unless => fact('osfamily').eql?('OpenBSD') do
     it { is_expected.to be_installed }
   end
 

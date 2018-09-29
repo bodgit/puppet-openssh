@@ -27,7 +27,7 @@ describe 'openssh::client' do
           	SendEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT LC_IDENTIFICATION LC_ALL LANGUAGE XMODIFIERS
         EOS
         it { is_expected.to contain_openssh__client__host('defaults') }
-        it { is_expected.to contain_package('openssh-client') }
+        it { is_expected.to contain_package('openssh-clients') }
       when 'OpenBSD'
         it { is_expected.not_to contain_concat__fragment('openssh client /etc/ssh/ssh_config host *') }
         it { is_expected.to have_package_resource_count(0) }

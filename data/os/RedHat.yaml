@@ -23,7 +23,7 @@ openssh::client::hosts:
       - 'LANGUAGE'
       - 'XMODIFIERS'
 openssh::client::manage_package: true
-openssh::client::package_name: 'openssh-client'
+openssh::client::package_name: 'openssh-clients'
 
 openssh::server::accept_env:
   - 'LANG'
