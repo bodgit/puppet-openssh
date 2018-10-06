@@ -85,6 +85,7 @@ class { '::openssh::server':
 
 class { '::openssh::server::ldap':
   base_dn => 'ou=people,dc=example,dc=com',
+  group   => 'nobody',
   uri     => [
     'ldap://ldap.example.com',
   ],

@@ -30,9 +30,9 @@ class openssh::server::ldap::config {
 
   file { $conf_file:
     ensure  => file,
-    owner   => 0,
-    group   => 0,
-    mode    => '0644',
+    owner   => $::openssh::server::ldap::owner,
+    group   => $::openssh::server::ldap::group,
+    mode    => $::openssh::server::ldap::mode,
     content => template("${module_name}/ldap.conf.erb"),
   }
 }

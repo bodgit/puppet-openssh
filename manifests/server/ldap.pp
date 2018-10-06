@@ -8,6 +8,7 @@
 #
 #   class { '::openssh::server::ldap':
 #     base_dn => 'ou=people,dc=example,dc=com',
+#     group   => 'nobody',
 #     uri     => [
 #       'ldap://ldap.example.com',
 #     ],
@@ -17,6 +18,9 @@
 # @param uri
 # @param conf_file
 # @param manage_package
+# @param group
+# @param mode
+# @param owner
 # @param package_name
 # @param account_class
 # @param bind_dn
@@ -49,6 +53,9 @@ class openssh::server::ldap (
   Array[Bodgitlib::LDAP::URI::Simple, 1]                    $uri,
   Stdlib::Absolutepath                                      $conf_file,
   Boolean                                                   $manage_package,
+  Variant[Integer[0], String]                               $group           = 0,
+  Pattern[/(?x) ^ [0-7]{4} $/]                              $mode            = '0640',
+  Variant[Integer[0], String]                               $owner           = 0,
   Optional[String]                                          $package_name    = undef,
   Optional[String]                                          $account_class   = undef,
   Optional[Bodgitlib::LDAP::DN]                             $bind_dn         = undef,
