@@ -1,5 +1,12 @@
 # Change Log
 
+## [v1.0.2](https://github.com/bodgit/puppet-openssh/tree/v1.0.2) (2018-10-06)
+[Full Changelog](https://github.com/bodgit/puppet-openssh/compare/v1.0.1...v1.0.2)
+
+**Implemented enhancements:**
+
+- Incorrect permissions on /etc/ssh/ldap.conf [\#1](https://github.com/bodgit/puppet-openssh/issues/1)
+
 ## [v1.0.1](https://github.com/bodgit/puppet-openssh/tree/v1.0.1) (2018-09-29)
 [Full Changelog](https://github.com/bodgit/puppet-openssh/compare/v1.0.0...v1.0.1)
 
