@@ -96,6 +96,7 @@
 
 class { &#39;::openssh::server::ldap&#39;:
   base_dn =&gt; &#39;ou=people,dc=example,dc=com&#39;,
+  group   =&gt; &#39;nobody&#39;,
   uri     =&gt; [
     &#39;ldap://ldap.example.com&#39;,
   ],
@@ -145,6 +146,45 @@ class { &#39;::openssh::server::ldap&#39;:
       
         <span class='type'>(<tt>Boolean</tt>)</span>
       
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>group</span>
+      
+      
+        <span class='type'>(<tt>Variant[Integer[0], String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>0</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>mode</span>
+      
+      
+        <span class='type'>(<tt>Pattern[/(?x) ^ [0-7]{4} $/]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;0640&#39;</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>owner</span>
+      
+      
+        <span class='type'>(<tt>Variant[Integer[0], String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>0</tt>)</em>
       
       
     </li>
@@ -480,10 +520,6 @@ class { &#39;::openssh::server::ldap&#39;:
         <pre class="lines">
 
 
-47
-48
-49
-50
 51
 52
 53
@@ -519,16 +555,26 @@ class { &#39;::openssh::server::ldap&#39;:
 83
 84
 85
-86</pre>
+86
+87
+88
+89
+90
+91
+92
+93</pre>
       </td>
       <td>
-        <pre class="code"><span class="info file"># File 'manifests/server/ldap.pp', line 47</span>
+        <pre class="code"><span class="info file"># File 'manifests/server/ldap.pp', line 51</span>
 
 class openssh::server::ldap (
   Bodgitlib::LDAP::DN                                       $base_dn,
   Array[Bodgitlib::LDAP::URI::Simple, 1]                    $uri,
   Stdlib::Absolutepath                                      $conf_file,
   Boolean                                                   $manage_package,
+  Variant[Integer[0], String]                               $group           = 0,
+  Pattern[/(?x) ^ [0-7]{4} $/]                              $mode            = &#39;0640&#39;,
+  Variant[Integer[0], String]                               $owner           = 0,
   Optional[String]                                          $package_name    = undef,
   Optional[String]                                          $account_class   = undef,
   Optional[Bodgitlib::LDAP::DN]                             $bind_dn         = undef,

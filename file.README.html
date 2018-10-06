@@ -155,6 +155,7 @@ include ::openssh::server</code></pre>
 
 class { &#39;::openssh::server::ldap&#39;:
   base_dn =&gt; &#39;ou=people,dc=example,dc=com&#39;,
+  group   =&gt; &#39;nobody&#39;,
   uri     =&gt; [
     &#39;ldap://ldap.example.com&#39;,
   ],

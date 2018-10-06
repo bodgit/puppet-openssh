@@ -98,6 +98,17 @@ include ::openssh::server::sftp</code></pre>
   
     <li>
       
+        <span class='name'>command</span>
+      
+      
+        <span class='type'>(<tt>Stdlib::Absolutepath</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
         <span class='name'>manage_package</span>
       
       
@@ -116,17 +127,6 @@ include ::openssh::server::sftp</code></pre>
       
       
         <em class="default">(defaults to: <tt>undef</tt>)</em>
-      
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>command</span>
-      
-      
-        <span class='type'>(<tt>Stdlib::Absolutepath</tt>)</span>
-      
       
       
     </li>
@@ -168,9 +168,9 @@ include ::openssh::server::sftp</code></pre>
         <pre class="code"><span class="info file"># File 'manifests/server/sftp.pp', line 12</span>
 
 class openssh::server::sftp (
+  Stdlib::Absolutepath $command,
   Boolean              $manage_package,
   Optional[String]     $package_name   = undef,
-  Stdlib::Absolutepath $command,
 ) {
 
   if ! defined(Class[&#39;::openssh::server&#39;]) {
