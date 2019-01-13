@@ -1,6 +1,13 @@
 # Change Log
 
-## [v1.0.2](https://github.com/bodgit/puppet-openssh/tree/v1.0.2) (2018-10-06)
+## [v1.0.3](https://github.com/bodgit/puppet-openssh/tree/v1.0.3) (2019-01-13)
+[Full Changelog](https://github.com/bodgit/puppet-openssh/compare/v1.0.2...v1.0.3)
+
+**Fixed bugs:**
+
+- Can't configure multible ports [\#2](https://github.com/bodgit/puppet-openssh/issues/2)
+
+## [v1.0.2](https://github.com/bodgit/puppet-openssh/tree/v1.0.2) (2019-01-13)
 [Full Changelog](https://github.com/bodgit/puppet-openssh/compare/v1.0.1...v1.0.2)
 
 **Implemented enhancements:**
